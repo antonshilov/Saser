@@ -128,6 +128,8 @@ int g_column = 1, g_offset = 0;
 stringch      [^"\n]
 %%
 
+"/!"[^\n]* {}
+
 "="			{ count();  TokenTable.push_back(TokenTableRow(TokenClass::ASSIGN, YYText(), lineno())); }
 "break"			{ count();  TokenTable.push_back(TokenTableRow(TokenClass::BREAK, YYText(), lineno())); }
 "continue"		{ count();  TokenTable.push_back(TokenTableRow(TokenClass::CONTINUE, YYText(), lineno())); }
