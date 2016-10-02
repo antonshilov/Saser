@@ -127,6 +127,8 @@ bool failrue_flag = false;
 %option c++
 
 stringch      [^"\n]
+D			[0-9]
+L			[a-zA-Z_]
 %%
 
 "/!"[^\n]* {}
@@ -176,7 +178,7 @@ stringch      [^"\n]
 
 0|[1-9][0-9]* 			{ count();  TokenTable.push_back(TokenTableRow(TokenClass::INTCONST, YYText(), lineno()));}
 \"(\\.|[^\\"])*\"	{ count();  TokenTable.push_back(TokenTableRow(TokenClass::STRING_LITERAL, YYText(), lineno()));}
-[:alpha:][[:alnum:]_]*	{ count();  TokenTable.push_back(TokenTableRow(TokenClass::IDENTIFIER, YYText(), lineno()));}
+({L}|[_])({L}|{D})*	{ count();  TokenTable.push_back(TokenTableRow(TokenClass::IDENTIFIER, YYText(), lineno()));}
 [ \t\v\f]		{ count();}
 
 \"{stringch}*$  {
