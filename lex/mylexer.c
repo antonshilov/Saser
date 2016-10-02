@@ -117,7 +117,8 @@ typedef std::tuple<TokenClass, string, int> TokenTableRow;
 std::vector <TokenTableRow> TokenTable;
 
 void count();
-int g_column = 1, g_offset = 0;
+int g_offset = 0;
+bool failrue_flag = false;
 
 %}
 
@@ -171,7 +172,7 @@ stringch      [^"\n]
 ";"			{ count();  TokenTable.push_back(TokenTableRow(TokenClass::SEMICOLON, YYText(), lineno()));}
 "char"			{ count();  TokenTable.push_back(TokenTableRow(TokenClass::CHAR, YYText(), lineno()));}
 
-\n++ {g_column++; g_offset = 0;}
+\n++ {g_offset = 0;}
 
 0|[1-9][0-9]* 			{ count();  TokenTable.push_back(TokenTableRow(TokenClass::INTCONST, YYText(), lineno()));}
 \"(\\.|[^\\"])*\"	{ count();  TokenTable.push_back(TokenTableRow(TokenClass::STRING_LITERAL, YYText(), lineno()));}
@@ -180,10 +181,12 @@ stringch      [^"\n]
 
 \"{stringch}*$  {
 cerr << "ERROR: " << YYText() << " - Unfinished string literal. Line " << lineno() <<"___" << g_offset<< ".\n";
+failrue_flag = true;
 }
 
 .       {
 cerr << "ERROR: " << YYText() << " - unrecognized token. Line " << lineno() << "--" << g_offset<< ".\n";
+failrue_flag = true;
 }
 %%
 
@@ -215,6 +218,7 @@ static void DumpTokenTable(string firstColName, string secondColName, string thi
 
 int main(int argc, const char* argv[])
 {
+
     if(argc < 2)
     {
         cerr << "Too few parameters in command line.\n";
@@ -249,6 +253,9 @@ int main(int argc, const char* argv[])
         cout << "No tokens." << "\n";
     }
     cout << "\nDump finished.\n\n";
-
+    if(failrue_flag){
+        return EXIT_FAILURE;
+    } else {
     return EXIT_SUCCESS;
+    }
 }

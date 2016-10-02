@@ -623,10 +623,11 @@ typedef std::tuple<TokenClass, string, int> TokenTableRow;
 std::vector <TokenTableRow> TokenTable;
 
 void count();
-int g_column = 1, g_offset = 0;
+int g_offset = 0;
+bool failrue_flag = false;
 
 #define YY_NO_UNISTD_H 1
-#line 630 "lex.yy.cc"
+#line 631 "lex.yy.cc"
 
 #define INITIAL 0
 
@@ -758,10 +759,10 @@ YY_DECL
 		}
 
 	{
-#line 129 "mylexer.c"
+#line 130 "mylexer.c"
 
 
-#line 765 "lex.yy.cc"
+#line 766 "lex.yy.cc"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -830,234 +831,234 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 131 "mylexer.c"
+#line 132 "mylexer.c"
 {}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 133 "mylexer.c"
+#line 134 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::ASSIGN, YYText(), lineno())); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 134 "mylexer.c"
+#line 135 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::BREAK, YYText(), lineno())); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 135 "mylexer.c"
+#line 136 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::CONTINUE, YYText(), lineno())); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 136 "mylexer.c"
+#line 137 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::DO, YYText(), lineno())); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 137 "mylexer.c"
+#line 138 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::ELSE, YYText(), lineno())); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 138 "mylexer.c"
+#line 139 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::FLOAT, YYText(), lineno())); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 139 "mylexer.c"
+#line 140 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::FOR, YYText(), lineno())); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 140 "mylexer.c"
+#line 141 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::GOTO, YYText(), lineno()));}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 141 "mylexer.c"
+#line 142 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::IF, YYText(), lineno()));}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 142 "mylexer.c"
+#line 143 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::INT, YYText(), lineno()));}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 143 "mylexer.c"
+#line 144 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::RETURN, YYText(), lineno())); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 144 "mylexer.c"
+#line 145 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::VOID, YYText(), lineno()));}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 145 "mylexer.c"
+#line 146 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::WHILE, YYText(), lineno())); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 146 "mylexer.c"
+#line 147 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::NE_OP, YYText(), lineno()));}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 147 "mylexer.c"
+#line 148 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::EQ_OP, YYText(), lineno()));}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 148 "mylexer.c"
+#line 149 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::GE_OP, YYText(), lineno()));}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 149 "mylexer.c"
+#line 150 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::LE_OP, YYText(), lineno()));}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 150 "mylexer.c"
+#line 151 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::COLON, YYText(), lineno()));}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 151 "mylexer.c"
+#line 152 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::GE, YYText(), lineno()));}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 152 "mylexer.c"
+#line 153 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::LE, YYText(), lineno()));}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 153 "mylexer.c"
+#line 154 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::QUESTION, YYText(), lineno()));}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 154 "mylexer.c"
+#line 155 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::SLASH, YYText(), lineno()));}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 155 "mylexer.c"
+#line 156 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::INV_COMMA, YYText(), lineno()));}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 156 "mylexer.c"
+#line 157 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::SQ_BR_OP, YYText(), lineno()));}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 157 "mylexer.c"
+#line 158 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::SQ_BR_CL, YYText(), lineno()));}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 158 "mylexer.c"
+#line 159 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::PLUS, YYText(), lineno()));}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 159 "mylexer.c"
+#line 160 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::MINUS, YYText(), lineno()));}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 160 "mylexer.c"
+#line 161 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::MULT, YYText(), lineno()));}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 161 "mylexer.c"
+#line 162 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::PERCENT, YYText(), lineno()));}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 162 "mylexer.c"
+#line 163 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::EXCLAMATION, YYText(), lineno()));}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 163 "mylexer.c"
+#line 164 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::TRUE, YYText(), lineno()));}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 164 "mylexer.c"
+#line 165 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::FALSE, YYText(), lineno()));}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 165 "mylexer.c"
+#line 166 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::CLOSE_BRACE, YYText(), lineno()));}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 166 "mylexer.c"
+#line 167 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::OPEN_BRACE, YYText(), lineno()));}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 167 "mylexer.c"
+#line 168 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::CLOSE_PAREN, YYText(), lineno()));}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 168 "mylexer.c"
+#line 169 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::OPEN_PAREN, YYText(), lineno()));}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 169 "mylexer.c"
+#line 170 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::DOT, YYText(), lineno()));}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 170 "mylexer.c"
+#line 171 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::COMMA, YYText(), lineno()));}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 171 "mylexer.c"
+#line 172 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::SEMICOLON, YYText(), lineno()));}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 172 "mylexer.c"
+#line 173 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::CHAR, YYText(), lineno()));}
 	YY_BREAK
 case 42:
 /* rule 42 can match eol */
 YY_RULE_SETUP
-#line 174 "mylexer.c"
-{g_column++; g_offset = 0;}
+#line 175 "mylexer.c"
+{g_offset = 0;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 176 "mylexer.c"
+#line 177 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::INTCONST, YYText(), lineno()));}
 	YY_BREAK
 case 44:
 /* rule 44 can match eol */
 YY_RULE_SETUP
-#line 177 "mylexer.c"
+#line 178 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::STRING_LITERAL, YYText(), lineno()));}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 178 "mylexer.c"
+#line 179 "mylexer.c"
 { count();  TokenTable.push_back(TokenTableRow(TokenClass::IDENTIFIER, YYText(), lineno()));}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 179 "mylexer.c"
+#line 180 "mylexer.c"
 { count();}
 	YY_BREAK
 case 47:
@@ -1065,24 +1066,26 @@ case 47:
 (yy_c_buf_p) = yy_cp -= 1;
 YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
-#line 181 "mylexer.c"
+#line 182 "mylexer.c"
 {
 cerr << "ERROR: " << YYText() << " - Unfinished string literal. Line " << lineno() <<"___" << g_offset<< ".\n";
+failrue_flag = true;
 }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 185 "mylexer.c"
+#line 187 "mylexer.c"
 {
 cerr << "ERROR: " << YYText() << " - unrecognized token. Line " << lineno() << "--" << g_offset<< ".\n";
+failrue_flag = true;
 }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 188 "mylexer.c"
+#line 191 "mylexer.c"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 1086 "lex.yy.cc"
+#line 1089 "lex.yy.cc"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2046,7 +2049,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 188 "mylexer.c"
+#line 191 "mylexer.c"
 
 
 
@@ -2078,6 +2081,7 @@ static void DumpTokenTable(string firstColName, string secondColName, string thi
 
 int main(int argc, const char* argv[])
 {
+
     if(argc < 2)
     {
         cerr << "Too few parameters in command line.\n";
@@ -2112,6 +2116,9 @@ int main(int argc, const char* argv[])
         cout << "No tokens." << "\n";
     }
     cout << "\nDump finished.\n\n";
-
+    if(failrue_flag){
+        return EXIT_FAILURE;
+    } else {
     return EXIT_SUCCESS;
+    }
 }
